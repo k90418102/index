@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> 洪亞倫的照片集</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <H2>照片集</H2>
+    <img src="pic00.jpg" alt=""onmousedown="this.src=nextImage()"
+                               onmouseover="this.src=randomImage()">
+    <script>
+        var curIndex=0;
+        var imgArray=new Array();
+        var pics=10;
+        for(i=0;i<pics;i++)
+        {
+            imgArray[i]=new Image();
+            if(i<10)
+             imgArray[i].src="pic0"+i+".jpg";
+            else
+             imgArray[i].src="pic"+i+".jpg";
+        }
+        function nextImage(){
+            curIndex++;
+            curIndex=curIndex % pics;
+            return(imgArray[curIndex].src);
+        }
+        function randomImage(){
+            curIndex=Math.floor(Math.random()*pics);
+            return(imgArray[curIndex].src);
+        }
+    </script>
+</body>
+</html>
